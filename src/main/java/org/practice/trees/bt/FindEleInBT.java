@@ -1,28 +1,24 @@
-package org.practice.bt;
+package org.practice.trees.bt;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LevelOrderTraversal {
+public class FindEleInBT {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		BinaryTreeNode root = BinaryTreeUtil.getBinaryTree();
 		
-		levelOrderTraversal(root);
+		System.out.println(findEle(root, 3));
 
 	}
 	
-	public static void levelOrderTraversal(BinaryTreeNode root) {
-		
+	public static boolean findEle(BinaryTreeNode root, int ele) {
 		Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
-		
 		queue.offer(root);
-		
 		while(!queue.isEmpty()) {
 			BinaryTreeNode tmp = queue.poll();
-			System.out.println(tmp.getData());
+			if(tmp.getData() == ele) return true;
 			if(tmp.getLeft() != null) {
 				queue.offer(tmp.getLeft());
 			}
@@ -30,7 +26,7 @@ public class LevelOrderTraversal {
 				queue.offer(tmp.getRight());
 			}
 		}
-		
+		return false;
 	}
 
 }

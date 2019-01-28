@@ -1,4 +1,4 @@
-package org.practice.bt;
+package org.practice.trees.bt;
 
 public class WidthOfBT_Rec {
 

@@ -1,32 +1,36 @@
-package org.practice.bt;
+package org.practice.trees.bt;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class SizeOfBT {
+public class LevelOrderTraversal {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		
 		BinaryTreeNode root = BinaryTreeUtil.getBinaryTree();
-		System.out.println(sizeOfBT(root));
+		
+		levelOrderTraversal(root);
 
 	}
 	
-	public static int sizeOfBT(BinaryTreeNode root) {
+	public static void levelOrderTraversal(BinaryTreeNode root) {
+		
 		Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+		
 		queue.offer(root);
-		int size = 0;
+		
 		while(!queue.isEmpty()) {
 			BinaryTreeNode tmp = queue.poll();
+			System.out.println(tmp.getData());
 			if(tmp.getLeft() != null) {
 				queue.offer(tmp.getLeft());
 			}
 			if(tmp.getRight() != null) {
 				queue.offer(tmp.getRight());
 			}
-			size++;
 		}
-		return size;
+		
 	}
 
 }

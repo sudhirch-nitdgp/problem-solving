@@ -1,24 +1,27 @@
-package org.practice.bt;
+package org.practice.trees.bt;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DeepestNodeOfBT {
+public class NumberOfLeavesInBT {
 
 	public static void main(String[] args) {
 		
 		BinaryTreeNode root = BinaryTreeUtil.getBinaryTree();
 		
-		System.out.println(deepestNode(root).getData());
+		System.out.println(numberOfLeaves(root));
 
 	}
 	
-	public static BinaryTreeNode deepestNode(BinaryTreeNode root) {
+	public static int numberOfLeaves(BinaryTreeNode root) {
 		Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
 		queue.offer(root);
-		BinaryTreeNode tmp = null;
+		int noOfLeaves = 0;
 		while(!queue.isEmpty()) {
-			tmp = queue.poll();
+			BinaryTreeNode tmp = queue.poll();
+			if(tmp.getLeft() == null && tmp.getRight() == null) {
+				noOfLeaves++;
+			}
 			if(tmp.getLeft() != null) {
 				queue.offer(tmp.getLeft());
 			}
@@ -26,7 +29,7 @@ public class DeepestNodeOfBT {
 				queue.offer(tmp.getRight());
 			}
 		}
-		return tmp;
+		return noOfLeaves;
 	}
 
 }

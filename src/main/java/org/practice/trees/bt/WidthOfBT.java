@@ -1,4 +1,4 @@
-package org.practice.bt;
+package org.practice.trees.bt;
 
 import java.util.LinkedList;
 import java.util.Queue;

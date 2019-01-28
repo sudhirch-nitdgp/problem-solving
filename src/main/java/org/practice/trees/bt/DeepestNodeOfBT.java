@@ -1,26 +1,24 @@
-package org.practice.bt;
+package org.practice.trees.bt;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class FindMaxInBT {
+public class DeepestNodeOfBT {
 
 	public static void main(String[] args) {
 		
 		BinaryTreeNode root = BinaryTreeUtil.getBinaryTree();
-		System.out.println(findMax(root));
+		
+		System.out.println(deepestNode(root).getData());
 
 	}
 	
-	public static int findMax(BinaryTreeNode root) {
+	public static BinaryTreeNode deepestNode(BinaryTreeNode root) {
 		Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
 		queue.offer(root);
-		int max = -1;
+		BinaryTreeNode tmp = null;
 		while(!queue.isEmpty()) {
-			BinaryTreeNode tmp = queue.poll();
-			if(tmp.getData() > max) {
-				max = tmp.getData();
-			}
+			tmp = queue.poll();
 			if(tmp.getLeft() != null) {
 				queue.offer(tmp.getLeft());
 			}
@@ -28,7 +26,7 @@ public class FindMaxInBT {
 				queue.offer(tmp.getRight());
 			}
 		}
-		return max;
+		return tmp;
 	}
 
 }
