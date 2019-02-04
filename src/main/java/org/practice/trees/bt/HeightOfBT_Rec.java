@@ -13,7 +13,7 @@ public class HeightOfBT_Rec {
 		if(root == null) return 0;
 		int leftHeight = heightOfBT(root.getLeft());
 		int rightHeight = heightOfBT(root.getRight());
-		return leftHeight > rightHeight ? leftHeight+1 : rightHeight+1;
+		return Math.max(leftHeight, rightHeight) + 1;
 	}
 
 }
