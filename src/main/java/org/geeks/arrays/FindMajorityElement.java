@@ -4,7 +4,7 @@ public class FindMajorityElement {
 
 	public static void main(String[] args) {
 		
-		int a[] = {8,8,6,6,6,4};
+		int a[] = {8,8,6,6,6,4,6};
 		
 		System.out.println(findMajority(a));
 
@@ -21,7 +21,7 @@ public class FindMajorityElement {
 		if(count <= (a.length)/2) {
 			return -1;
 		}
-		return result;
+		return a[result];
 	}
 	
 	public static int findMajorityCandidateIndex(int a[]) {
